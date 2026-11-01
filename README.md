@@ -15,7 +15,132 @@ Interface	        Web-based research dashboard
 Deployment	        Docker
 Primary objective	Robust, risk-adjusted returns
 ```
+## System Architecture
+```
+                        QUANT-T
+                 (Multi-Market Platform)
+                           |
+                           v
+              +-------------------------+
+              |   MARKET DATA SOURCES   |
+              +-------------------------+
+              | NSE Equities            |
+              | US Equities             |
+              | Crypto Exchanges        |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  1. DATA INGESTION      |
+              |         ENGINE          |
+              +-------------------------+
+              | REST APIs               |
+              | WebSockets              |
+              | Historical Data         |
+              | Data Validation         |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  2. FEATURE ENGINEERING |
+              |         ENGINE          |
+              +-------------------------+
+              | Returns                 |
+              | VWAP                    |
+              | RSI                     |
+              | Volatility              |
+              | Volume Profile           |
+              | Momentum                |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  3. QUANTITATIVE         |
+              |     STRATEGY ENGINE     |
+              +-------------------------+
+                           |
+              +------------+------------+
+              |                         |
+              v                         v
+    +-------------------+    +-------------------+
+    | STATISTICAL MODELS|    |   ML MODELS       |
+    +-------------------+    +-------------------+
+    | Momentum          |    | Logistic          |
+    | Mean Reversion    |    | Regression        |
+    | Volatility        |    | XGBoost           |
+    +---------+---------+    +---------+---------+
+              |                         |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |    SIGNAL FUSION        |
+              |         ENGINE          |
+              +-------------------------+
+              | Combined Trading Signals|
+              | Confidence Estimates    |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  4. PORTFOLIO & RISK    |
+              |         ENGINE          |
+              +-------------------------+
+              | Position Sizing         |
+              | Stop Loss               |
+              | Exposure Management     |
+              | Drawdown Limits         |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  5. EXECUTION ENGINE    |
+              +-------------------------+
+              | Order Simulation        |
+              | Order State Management |
+              | Slippage Modeling       |
+              | Fill Management         |
+              +------------+------------+
+                           |
+                           v
+              +-------------------------+
+              |  6. MONITORING &        |
+              |       ANALYTICS         |
+              +-------------------------+
+              | Performance Dashboard   |
+              | Trade Journal           |
+              | Alerts                  |
+              | Model Diagnostics       |
+              +-------------------------+
+                           |
+                           |
+                           v
+                  PERFORMANCE FEEDBACK
+                           |
+                           +---------> Strategy
+                           +---------> Feature Engineering
+```
 
+### Development Status
+```
+- [ ] Market Data Integration
+- [ ] Data Ingestion Engine
+- [ ] Feature Engineering
+- [ ] Statistical Strategy Development
+- [ ] Machine Learning Models
+- [ ] Signal Fusion
+- [ ] Portfolio & Risk Management
+- [ ] Execution Simulator
+- [ ] Backtesting Framework
+- [ ] Monitoring & Analytics
+
+**Current Phase:** Architecture Design & Initial Research
+
+**Trading Mode:** Paper Trading
+
+**Approach:** Hybrid Statistical + Machine Learning
+
+```
 
 ## Tech Stack
 ```
@@ -108,3 +233,11 @@ QUANT-T/
 ├── Dockerfile
 └── README.md
 ```
+
+## Author
+
+##### Kaustubh Mali
+
+##### Computer Science Graduate | AI Engineering & LLM Applications
+
+##### LinkedIn: https://www.linkedin.com/in/kaustubhmali30
